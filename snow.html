@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	img{
+		position: absolute;
+	}
+	body{
+		background-color: black;
+	}
+</style>
+<script type="text/javascript" 
+	src="jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+	setInterval(function(){
+		var w = 
+			document.body.parentElement.clientWidth;
+		var h = 
+			document.body.parentElement.clientHeight;
+		
+		var img = $("<img src='snow.png'>");
+		//设置雪花尺寸20-40随机
+		var x = Math.floor(Math.random()*20)+20+"px";
+		var left = Math.floor(Math.random()*(w-parseInt(x)))+"px";
+		img.css({"width":x,"height":x,
+			"left":left});
+		//让雪花移动到屏幕最下方
+		 img.animate({"top":h-parseInt(x)+"px"},
+				 	2000+Math.floor(Math.random()*2000));
+		$(document.body).append(img);
+		$("img").hover(function(){$(this).fadeOut(10);});
+	},100);
+</script>
+</head>
+<body>
+	
+</body>
+</html>
